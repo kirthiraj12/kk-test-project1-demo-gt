@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - npm install -g newman
+  build:
+    commands:
+      - newman run com.slalom.sample.postman.api.testscenario2.postman_collection.json -e postmantest.postman_environment.json -r html,cli --reporter-html-export report.html
+
+artifacts:
+  files:
+    - report.html
